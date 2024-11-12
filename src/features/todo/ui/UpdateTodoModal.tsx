@@ -1,13 +1,30 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
-import { CommonTextArea, CommonButton, CommonInput, queryClient } from "@/shared";
+import {
+  CommonTextArea,
+  CommonButton,
+  CommonInput,
+  queryClient,
+  CommonRadioGroup
+} from "@/shared";
 
 import { todosMutationKeys } from "../api/todos.mutationKeys";
 import { updateTodo } from "../api/todos";
 import { todosQueryKeys } from "../api/todos.queryKeys";
 import { validateUpdateTodo } from "../lib/validate";
 import type { GetTodosRes, Priority } from "../types/todoTypes";
+
+interface PriorityRadioItem {
+  value: Priority;
+  label: string;
+}
+
+const priorityRadioItems: PriorityRadioItem[] = [
+  { value: "urgent", label: "Urgent" },
+  { value: "normal", label: "Normal" },
+  { value: "low", label: "Low" },
+];
 
 interface UpdateTodoModalProps {
   id: string;
@@ -91,38 +108,11 @@ export function UpdateTodoModal({
           placeholder="내용을 입력해주세요"
           onChange={setNewContents}
         />
-        <div className="mt-3 flex items-center gap-x-3">
-          <label className="flex items-center gap-x-1">
-            <input
-              type="radio"
-              name="priority"
-              value="urgent"
-              checked={newPriority === "urgent"}
-              onChange={() => setNewPriority("urgent")}
-            />
-            <span>Urgent</span>
-          </label>
-          <label className="flex items-center gap-x-1">
-            <input
-              type="radio"
-              name="priority"
-              value="normal"
-              checked={newPriority === "normal"}
-              onChange={() => setNewPriority("normal")}
-            />
-            <span>Normal</span>
-          </label>
-          <label className="flex items-center gap-x-1">
-            <input
-              type="radio"
-              name="priority"
-              value="low"
-              checked={newPriority === "low"}
-              onChange={() => setNewPriority("low")}
-            />
-            <span>Low</span>
-          </label>
-        </div>
+        <CommonRadioGroup
+          items={priorityRadioItems}
+          value={newPriority}
+          onChange={setNewPriority}
+        />
         <div className="mt-4 flex justify-between">
           <CommonButton className="w-20" variant="secondary" onClick={onClose}>
             취소
