@@ -65,7 +65,7 @@ export function TodoItem({
     <>
       <div className="rounded-lg bg-slate-600 flex flex-col p-4 cursor-pointer" onClick={() => handleSetSearchParams(todoItem.id)}>
         <div className="flex justify-between items-center">
-          <p className="text-slate-200">
+          <p className="text-xl text-white font-bold">
             {todoItem.title}
           </p>
           <div className="flex items-center gap-x-3">
@@ -79,9 +79,12 @@ export function TodoItem({
         </div>
         {
           isOpenTodoContent && (
-            <p className="text-sm text-slate-300 whitespace-pre">
-              {todoItem.content}
-            </p>
+            <div className="mt-2 flex flex-col gap-y-1">
+              <p className="text-xs text-slate-300">우선순위: {todoItem.priority}</p>
+              <p className="text-sm text-slate-100 whitespace-pre">
+                {todoItem.content}
+              </p>
+            </div>
           )
         }
       </div>

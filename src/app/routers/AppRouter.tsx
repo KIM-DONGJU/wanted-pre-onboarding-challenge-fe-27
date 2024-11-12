@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect, RouteObject, RouterProvider } from "react-router-dom"
 
-import { SignUp, TodoList, SignIn } from "@/pages";
+import { SignUp, TodoPage, SignIn } from "@/pages";
 import {
   localStorageController,
   MAIN,
@@ -19,7 +19,7 @@ const authLoader = () => {
 const routes: RouteObject[] = [
   {
     path: MAIN,
-    element: <TodoList />,
+    element: <TodoPage />,
     loader: authLoader
   },
   {

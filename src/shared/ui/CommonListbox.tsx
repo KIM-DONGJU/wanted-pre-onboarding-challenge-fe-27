@@ -38,7 +38,7 @@ export function CommonListBox<T = string>({
               <ChevronUpDownIcon className="size-8 absolute h-full top-0 right-0 flex items-center pointer-events-none" color="gray" />
             </ListboxButton>
             <ListboxOptions
-              className="mt-1 border border-gray-300 w-full absolute max-h-60 rounded-md text-base leading-6 shadow-xs overflow-auto focus:outline-none "
+              className="z-10 mt-1 border border-gray-300 w-full absolute max-h-60 rounded-md text-base leading-6 shadow-xs overflow-auto focus:outline-none "
             >
               {items.map((item, index) => (
                 <ListboxOption key={index} value={item.value}>
