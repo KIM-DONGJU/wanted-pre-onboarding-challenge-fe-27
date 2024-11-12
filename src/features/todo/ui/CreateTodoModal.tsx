@@ -6,7 +6,8 @@ import {
   CommonInput,
   CommonRadioGroup,
   CommonTextArea,
-  queryClient
+  queryClient,
+  type CommonOptionItem,
 } from "@/shared";
 
 import { todosMutationKeys } from "../api/todos.mutationKeys";
@@ -15,12 +16,7 @@ import { todosQueryKeys } from "../api/todos.queryKeys";
 import { validateCreateTodo } from "../lib/validate";
 import type { Priority } from "../types/todoTypes";
 
-interface PriorityRadioItem {
-  value: Priority;
-  label: string;
-}
-
-const priorityRadioItems: PriorityRadioItem[] = [
+const priorityRadioItems: CommonOptionItem<Priority>[] = [
   { value: "urgent", label: "Urgent" },
   { value: "normal", label: "Normal" },
   { value: "low", label: "Low" },
