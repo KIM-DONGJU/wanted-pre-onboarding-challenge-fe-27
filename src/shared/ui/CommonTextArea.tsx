@@ -12,9 +12,9 @@ interface CommonTextAreaProps {
 }
 
 export function CommonTextArea({
+  className = "",
   value,
   onChange,
-  className,
   name,
   width = 'full',
   rows = 3,

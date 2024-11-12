@@ -13,6 +13,7 @@ interface CommonButtonProps {
 }
 
 export function CommonButton({
+  className = "",
   children,
   onClick = () => {},
   type = 'button',
@@ -20,7 +21,6 @@ export function CommonButton({
   height = 'md',
   variant = 'primary',
   disabled = false,
-  className,
 }: CommonButtonProps ) {
   const variantClasses = {
     'primary': `bg-blue-600 text-white hover:bg-blue-500 ${disabled && 'cursor-not-allowed bg-opacity-50 hover:bg-opacity-50'}`,

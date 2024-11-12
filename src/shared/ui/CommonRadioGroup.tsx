@@ -13,7 +13,7 @@ interface CommonRadioGroupProps<T> {
 }
 
 export function CommonRadioGroup<T = string>({
-  className,
+  className = "",
   value,
   items,
   onChange,

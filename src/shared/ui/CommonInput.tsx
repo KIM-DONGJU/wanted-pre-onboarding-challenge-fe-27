@@ -15,9 +15,9 @@ interface CommonInputProps {
 }
 
 export function CommonInput({
+  className = "",
   value,
   onChange,
-  className,
   type = 'text',
   width = 'full',
   height = 'md',
