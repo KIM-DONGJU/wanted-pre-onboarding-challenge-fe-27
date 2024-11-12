@@ -1,5 +1,5 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/20/solid";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 interface Item<T> {
   value: T,
@@ -10,6 +10,7 @@ interface CommonListBoxProps<T> {
   className?: string;
   items: Item<T>[];
   value: T;
+  defaultLabel: string;
   onChange: (value: T) => void;
 }
 
@@ -17,8 +18,10 @@ export function CommonListBox<T = string>({
   className = "",
   items,
   value,
+  defaultLabel,
   onChange,
 }: CommonListBoxProps<T>) {
+  const selectedItem = items.find(item => item.value === value);
 
   return (
     <div className={`${className} flex items-center justify-center`}>
@@ -31,22 +34,8 @@ export function CommonListBox<T = string>({
         >
           <div className="relative">
             <ListboxButton className="cursor-default relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition ease-in-out duration-150">
-              <span className="block truncate">{selectedPerson}</span>
-              <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                <svg
-                  className="h-5 w-5 text-gray-400"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M7 7l3-3 3 3m0 6l-3 3-3-3"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              <span className="block truncate">{selectedItem?.label || defaultLabel}</span>
+              <ChevronUpDownIcon className="size-8 absolute h-full top-0 right-0 flex items-center pointer-events-none" color="gray" />
             </ListboxButton>
             <ListboxOptions
               className="mt-1 border border-gray-300 w-full absolute max-h-60 rounded-md text-base leading-6 shadow-xs overflow-auto focus:outline-none "
