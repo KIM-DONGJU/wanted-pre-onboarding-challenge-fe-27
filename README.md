@@ -20,9 +20,12 @@ bun dev
 - 공부를 하는 것을 목적으로, 다소 과하게 구분
   - app: router, tanstack query provider 등 최상위 계층
   - pages: pages
-  - widgets: layout, SignUpForm, SignInForm
-    - 공식문서 상으로는 widgets에는 비즈니스 로직이 없는 것이 일반적이라고 명시되어 있으나 회원가입/로그인 은 비즈니스 로직이라기 보다는 비즈니스와 상관없는 보편적인 로직으로 판단되어 widgets에 위치
+  - widgets: authForms, todoList
+    - authForms
+      - 공식문서 상으로는 widgets에는 비즈니스 로직이 없는 것이 일반적이라고 명시되어 있으나 회원가입/로그인 은 비즈니스 로직이라기 보다는 비즈니스와 상관없는 보편적인 로직으로 판단되어 widgets에 위치
       - 사실 공식문서에 적혀있는 비즈니스 로직은 다른 의미일 수 있음(그냥 어떠한 상호작용을 하는 로직으로 명시한 걸수도..)
+    - todoList
+      - props로 데이터를 받아 리스트 형태로 뿌려주기만 하는 UI
   - features: entities보다는 조금 더 구체적인 개념인 TodoList 등 UI 및 api
   - entities: 전역적으로 사용되는? 추상적인 개념인 auth 관련 api 등
   - shared: 비즈니스 로직과 관련이 없는 다양한 곳에서 재사용되는 것들
