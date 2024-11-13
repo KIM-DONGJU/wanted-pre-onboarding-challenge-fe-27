@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/shared/lib/axiosInstance";
+import { axiosInstance } from "@/shared/api/axiosInstance";
 
 import type { AuthCredentials, AuthResponse } from "../types/authType";
 

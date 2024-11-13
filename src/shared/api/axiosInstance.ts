@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { localStorageController } from './storageController';
+import { localStorageController } from '../lib/storageController';
 
 let loginToken = localStorageController.getItem('authToken');
 export const axiosInstance = axios.create({
